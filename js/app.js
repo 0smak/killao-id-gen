@@ -6,6 +6,8 @@ const camera_button = document.querySelector("#start-camera"),
 	dateOfBirthText = document.querySelector("#dob-text"),
 	exp = document.querySelector("#exp"),
 	issueDate = document.querySelector("#issue-date"),
+	fileInput = document.querySelector("#fileInput"),
+	imgContainer = document.querySelector("#img-container"),
 	colorPalette = document.querySelector("#color-palette"),
 	color = document.querySelector("#selected-color"),
 	signature = document.querySelector("#signature-name"),
@@ -22,7 +24,7 @@ document.getElementById("save-btn").addEventListener("click", function () {
 		useCORS: true,
 	}).then(function (canvas) {
 		colorPalette.style.display = "block";
-		saveAs(canvas.toDataURL(), "file-name.png");
+		saveAs(canvas.toDataURL(), "carne-killao.png");
 	});
 });
 
@@ -62,20 +64,25 @@ color.addEventListener("change", () => {
 });
 
 camera_button.addEventListener("click", async function () {
-	camera_button.style.zIndex = "-1";
-	video.setAttribute("autoplay", "");
-	video.setAttribute("muted", "");
-	video.setAttribute("playsinline", "");
-	video.setAttribute("playsinline", true);
-	let stream = await navigator.mediaDevices.getUserMedia({
-		audio: false,
-		video: {
-			facingMode: "user",
-			width: { ideal: 300 },
-			height: { ideal: 360 },
-		},
-	});
-	video.srcObject = stream;
+	if (!checkIfMobile()) {
+		fileInput.click();
+		return;
+	} else {
+		camera_button.style.zIndex = "-1";
+		video.setAttribute("autoplay", "");
+		video.setAttribute("muted", "");
+		video.setAttribute("playsinline", "");
+		video.setAttribute("playsinline", true);
+		let stream = await navigator.mediaDevices.getUserMedia({
+			audio: false,
+			video: {
+				facingMode: "user",
+				width: { ideal: 300 },
+				height: { ideal: 360 },
+			},
+		});
+		video.srcObject = stream;
+	}
 });
 
 function resize() {
@@ -123,9 +130,41 @@ function addDate4Years(date) {
 	);
 }
 
+function checkIfMobile() {
+	return window.innerWidth < 500;
+}
+
+// if ios hide video element
+if (checkIfMobile()) {
+	video.style.display = "none";
+	fileInput.style.display = "block";
+} else {
+	video.style.display = "block";
+	fileInput.style.display = "none";
+}
+
+fileInput.addEventListener("change", function (event) {
+	const selectedFile = event.target.files[0];
+	const reader = new FileReader();
+
+	imgContainer.title = selectedFile.name;
+
+	reader.onload = function (event) {
+		console.log({ event });
+		imgContainer.src = event.target.result;
+		camera_button.style.display = "none";
+	};
+
+	reader.readAsDataURL(selectedFile);
+});
+
+// on add imag
+
 dateOfBirthText.innerHTML = randomDate();
 issueDate.innerHTML = parseDate(new Date());
 exp.innerHTML = parseDate(addDate4Years(dateOfBirthText.innerHTML));
 
 window.addEventListener("resize", resize);
-resize();
+setTimeout(() => {
+	resize();
+}, 250);

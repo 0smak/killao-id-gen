@@ -9,7 +9,6 @@
 			name="viewport"
 			content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
 		/>
-		<link rel="manifest" href="./manifest.json" />
 
 		<title>KillaoCore</title>
 		<link rel="stylesheet" href="./css/0-reset.css" />
@@ -24,6 +23,8 @@
 					<div class="killao-card__l">
 						<div class="killao-card__img-container">
 							<button id="start-camera">📷</button>
+							<img id="img-container" />
+							<input type="file" capture="user" id="fileInput" />
 							<video autoplay muted playsinline id="video"></video>
 						</div>
 						<div class="killao-card__barcode">
