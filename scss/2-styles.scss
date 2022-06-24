@@ -1,0 +1,39 @@
+body {
+	width: 100%;
+	min-height: 100vh;
+	min-height: 100dvh;
+	background-color: #fef9ff;
+	display: grid;
+	place-content: center;
+	grid-template-rows: 100%;
+	font-family: Roboto, sans-serif;
+	overflow: hidden;
+}
+
+.killao-content {
+	display: block;
+	margin: 0 auto;
+	// max-width: 700px;
+	// width: 90vw;
+	height: 100%;
+	padding: 3rem 1rem;
+}
+
+#options {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: flex-end;
+}
+#save-btn {
+	font-size: 36px;
+	height: 72px;
+	width: 72px;
+	border-radius: 50%;
+	padding: 0;
+	border: 0;
+	background-color: #ff2e7b;
+	margin: 1rem;
+}

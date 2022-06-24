@@ -1,0 +1,22 @@
+{
+	"name": "killao-id-generator",
+	"version": "1.0.0",
+	"description": "Generador de carné de Killao",
+	"author": "osmak",
+	"main": "index.js",
+	"scripts": {
+		"sass": "node-sass -w scss -o css --recursive --no-source-map --style compressed",
+		"build": "esbuild --watch --minify js/app.js --bundle --outfile=dist/index.js --loader:.html=text"
+	},
+	"license": "ISC",
+	"dependencies": {
+		"html2canvas": "^1.4.1",
+		"jquery": "^3.6.0"
+	},
+	"devDependencies": {
+		"esbuild": "^0.14.47",
+		"esbuild-postcss": "^0.0.4",
+		"node-sass": "^7.0.1",
+		"postcss": "^8.4.14"
+	}
+}

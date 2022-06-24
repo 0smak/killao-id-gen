@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="format-detection" content="telephone=no" />
+		<title>KillaoCore</title>
+		<link rel="stylesheet" href="./css/0-reset.css" />
+		<link rel="stylesheet" href="./css/1-typography.css" />
+		<link rel="stylesheet" href="./css/2-styles.css" />
+		<link rel="stylesheet" href="./css/n-killao-card.css" />
+	</head>
+	<body>
+		<div class="killao-content">
+			<div id="outer">
+				<div id="killao-card" class="killao-card">
+					<div class="killao-card__l">
+						<div class="killao-card__img-container">
+							<button id="start-camera">📷</button>
+							<video autoplay id="video"></video>
+						</div>
+						<div class="killao-card__barcode">
+							<img class="killao-card__barcode-img" src="./img/barcode.gif" />
+						</div>
+					</div>
+					<div class="killao-card__r">
+						<div class="killao-card__title">CARNET DE KILLAO 🤬</div>
+						<div class="killao-info">
+							<div class="killao-info__group">
+								<div class="killao-info__title">NUMBER</div>
+								<div class="killao-info__value">01 - 47 - 87441</div>
+							</div>
+							<div class="killao-info__flex">
+								<div class="killao-info__group">
+									<div class="killao-info__title">DOB</div>
+									<div class="killao-info__value" style="overflow: hidden">
+										<input
+											onclick="this.showPicker()"
+											class="input-date"
+											type="date"
+											id="dob"
+										/>
+										<span id="dob-text">06/06/1666</span>
+									</div>
+								</div>
+								<div class="killao-info__group">
+									<div class="killao-info__title">EXP</div>
+									<div class="killao-info__value" id="exp">09/09/2024</div>
+								</div>
+							</div>
+							<div class="killao-info__flex">
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										HT
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										5-10
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										WT
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										150
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										HAIR
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										BRO
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										EYES
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										BRO
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										SEX
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										N0
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										CTY
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										0
+									</div>
+								</div>
+							</div>
+							<div class="killao-info__flex">
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										ISSUE DATE
+									</div>
+									<div
+										id="issue-date"
+										class="killao-info__title killao-info__title--bigger killao-info__title--l"
+									>
+										22/06/22
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										CLASS
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										3
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										RESTR
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										&nbsp;
+									</div>
+								</div>
+								<div class="killao-info__v-group">
+									<div class="killao-info__title killao-info__title--bigger">
+										ENDORSE
+									</div>
+									<div class="killao-info__title killao-info__title--bigger">
+										&nbsp;
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="signature">
+							<div>
+								<img
+									class="killao-signature-og"
+									src="./img/killao-signature.png"
+								/>
+							</div>
+							<div class="killao-signature" id="signature-name">Minimenda</div>
+						</div>
+					</div>
+					<div class="killao-card__bottom">
+						<div class="killao-card__name">
+							<div>NOMBRE:</div>
+							<div
+								class="killao-card__name-input"
+								contenteditable="true"
+								spellcheck="false"
+								id="name"
+							>
+								minimenda
+							</div>
+
+							<div class="killao-card__color" id="color-palette">
+								<span class="killao-card__palette">🎨</span>
+								<input
+									class="killao-card__color"
+									type="color"
+									value="#282828"
+									id="selected-color"
+								/>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="options" class="options">
+				<button id="save-btn" class="save">💾</button>
+			</div>
+
+			<script type="module" src="./dist/index.js"></script>
+		</div>
+	</body>
+</html>
