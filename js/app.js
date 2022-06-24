@@ -64,7 +64,7 @@ color.addEventListener("change", () => {
 });
 
 camera_button.addEventListener("click", async function () {
-	if (!checkIfMobile()) {
+	if (checkIfMobile()) {
 		fileInput.click();
 		return;
 	} else {
