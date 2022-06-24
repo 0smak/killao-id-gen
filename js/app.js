@@ -63,15 +63,19 @@ color.addEventListener("change", () => {
 
 camera_button.addEventListener("click", async function () {
 	camera_button.style.zIndex = "-1";
+	video.setAttribute("autoplay", "");
+	video.setAttribute("muted", "");
+	video.setAttribute("playsinline", "");
+	video.setAttribute("playsinline", true);
 	let stream = await navigator.mediaDevices.getUserMedia({
 		audio: false,
 		video: {
-			width: { ideal: 197 },
-			height: { ideal: 307 },
+			facingMode: "user",
+			width: { ideal: 300 },
+			height: { ideal: 360 },
 		},
 	});
 	video.srcObject = stream;
-	video.setAttribute("playsinline", true);
 });
 
 function resize() {
