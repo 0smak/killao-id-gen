@@ -56,21 +56,27 @@
     display: inline-block;
     background: transparent;
     font-size: 36px; }
-  .killao-card__color {
+  .killao-card__color-container {
     position: absolute;
-    right: 0;
+    right: 10px;
     top: 50%;
     transform: translateY(-50%);
     height: 100%;
-    z-index: 1; }
+    z-index: 1;
+    font-size: 36px; }
+    .killao-card__color-container input {
+      opacity: 0;
+      height: 40px;
+      width: 40px; }
   .killao-card__palette {
     position: absolute;
     z-index: 3;
-    right: 50%;
+    width: 40px;
     top: 50%;
-    transform: translate(-40%, -50%);
+    transform: translate(0, -50%);
     font-size: 24px;
-    pointer-events: none; }
+    pointer-events: none;
+    text-align: center; }
   .killao-card__title {
     font-size: 32px;
     font-family: Orbitron;
