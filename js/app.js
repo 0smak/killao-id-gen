@@ -71,6 +71,7 @@ camera_button.addEventListener("click", async function () {
 		},
 	});
 	video.srcObject = stream;
+	video.setAttribute("playsinline", true);
 });
 
 function resize() {
